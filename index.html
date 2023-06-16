@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+   
+<head>
+      <title>43hz</title>
+      <meta charset="UTF-8">
+      <meta name="keywords" content="ixxrllg.github.io, 43hz">
+      <meta name="author" content="43hz">
+      <meta property="og:type" content="site">
+      <meta property="og:title" content="ixxrllg.github.io">
+      <meta itemprop="name" content="ixxrllg.github.io">
+      <meta itemprop="image" content="assets/icons/ixxrllg.png">
+      <meta property="og:image" content="assets/icons/ixxrllg.png">
+      <link rel="shortcut icon" href="assets/icons/ixxrllg.png" type="image/x-icon">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <script type="text/javascript" src="assets/javascript/disapp.js"></script>
+   </head>
+   <body>
+      <div id="main">
+         <table class="box">
+            <tbody>
+               <tr>
+                  <td><span id="line1" style="white-space:pre;"></span></td>
+               </tr>
+               <tr>
+                  <td><span id="line2" style="white-space:pre;"></span></td>
+               </tr>
+               <tr>
+                  <td><span id="line3 space" style="white-space:pre;"> </span></td>
+               </tr>
+               <tr>
+                  <td><span id="line4" style="white-space:pre;"></span></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="container" style="display: none;">
+         <h1 class="brand-header">
+            <span href="index.html" target="_BLANK" class="text">43hz</span>
+         </h1>
+         <h3 class="brand-header">
+            <a class="discord" href="https://discord.gg/koalacm" target="_BLANK">discord</a>
+         </h3>
+         <br><br>
+
+         <p><span id="brand"></span></p>
+      </div>
+      
+      <div class="background" style="display: none;">
+         <div id="pattern"></div>
+         <audio id="audio" loop="">
+            <source src="" type="audio/mp3">
+            <script>
+               var audio = document.getElementById("audio");
+               app.audioElement = audio;
+               app.audioElement.volume = 0;
+            </script>
+         </audio>
+         <video class="bg" id="background" loop="">
+            <source type="audio/mp4">
+            <script>
+               var video = document.getElementById("background");
+               app.videoElement = video;
+               app.videoElement.volume = 0;
+            </script>
+         </video>
+         <script>
+            var myvid = document.getElementById('background');
+            var audio = document.getElementById('audio');
+            var myvids = [
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290966680031373/Central_Cee_-_Obsessed_With_You_Official_Video.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290976360485066/DJ_Gimi-O_x_Ricky_Rich_x_Dardan_-_Habibi_Albanian_Remix.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290961823019028/Juice_WRLD_-_Lucid_Dreams_Directed_by_Cole_Bennett.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290973856481300/Central_Cee_-_Doja_Directed_by_Cole_Bennett.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290964817756262/YNW_Melly_-_Mama_Cry_Official_Video.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290958857646120/TPL_BM_OTP_-_London_View_Music_Video__Pressplay.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290969351802961/Yeat_-_Poppin_Directed_by_Cole_Bennett.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290963257479300/Doja_Cat__Serena_-_Manele_on_Streets__Romanian_Remix__Speed_up_tiktok_version.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290955611263047/YNW_Melly_-_Murder_On_My_Mind_Official_Video.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290924674056212/PinkPantheress_Ice_Spice_-_Boys_a_liar_Pt._2_Official_Video.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290928222437537/SHAKIRA__BZRP_Music_Sessions_53.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290920332963970/Kay_Flock_-_Is_Ya_Ready_shot_by_KLO_Vizionz.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119290917388550214/NEJ_-_Paro_Clip_Officiel.mp4",
+            "https://cdn.discordapp.com/attachments/1111344531942678631/1119294075326169098/PNL_-_JComprends_pas_Clip_Officiel.mp4",
+            ];
+            var activeVideo = 0;
+            activeVideo = Math.floor(Math.random() * myvids.length);
+            myvid.src = myvids[activeVideo]; 
+            audio.src = myvids[activeVideo];
+         </script>
+      </div>
+      <div class="top-right">
+         <i><a class="skip">enter</a></i>
+      </div>
+      <link rel="stylesheet" type="text/css" href="assets/stylesheets/stylesheet.css">
+      <script type="text/javascript" src="assets/javascript/lib/jquery-3.1.1.min.js"></script>
+      <script type="text/javascript" src="assets/javascript/lib/jquery.cookie.min.js"></script>
+      <script type="text/javascript" src="assets/javascript/lib/jquery.marquee.min.js"></script>
+      <script type="text/javascript" src="assets/javascript/lib/typed.min.js"></script>
+      <script type="text/javascript" src="assets/javascript/main.js"></script>
+   </body>
+</html>
