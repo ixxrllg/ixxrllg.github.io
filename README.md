@@ -1,2 +1,2 @@
 # ixxrllg.github.io
-discordinvite
+podjebane, zajebane, stworzone.
