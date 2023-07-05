@@ -1,2 +1,2 @@
-# ixxrllg.github.io
+# stronka majorka
 podjebane, zajebane, stworzone.
