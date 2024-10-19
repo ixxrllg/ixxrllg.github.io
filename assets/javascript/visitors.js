@@ -1,38 +1,35 @@
-        // Function to get a cookie by name
-        function getCookie(name) {
-            let value = "; " + document.cookie;
-            let parts = value.split("; " + name + "=");
-            if (parts.length === 2) return parts.pop().split(";").shift();
-        }
+class VisitorCounter {
+    constructor() {
+        this.localStorageKey = 'site_visit';
+        this.visitCountElement = document.getElementById('counter');
+        this.checkAndUpdateVisits();
+    }
 
-        // Function to set a cookie
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                let date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
+    hasVisitedBefore() {
+        return localStorage.getItem(this.localStorageKey) !== null;
+    }
 
-        // Check if the user has already visited
-        if (!getCookie('visited')) {
-            // Get the current count from local storage or initialize to 0
-            let count = localStorage.getItem('page_view_count') || 0;
-            
-            // Increment the count
-            count++;
-            
-            // Update the local storage with the new count
-            localStorage.setItem('page_view_count', count);
-            
-            // Set a cookie to mark the user as visited
-            setCookie('visited', 'true', 365); // Cookie expires in 1 year
-            
-            // Display the count
-            document.getElementById('counter').innerText = count;
+    saveVisit() {
+        const currentTimestamp = new Date().getTime();
+        localStorage.setItem(this.localStorageKey, currentTimestamp);
+    }
+
+    checkAndUpdateVisits() {
+        if (!this.hasVisitedBefore()) {
+            this.incrementVisitCount();
+            this.saveVisit();
         } else {
-            // Display the current count without incrementing
-            document.getElementById('counter').innerText = localStorage.getItem('page_view_count');
+            console.log('User has already visited the site.');
         }
+    }
+
+    incrementVisitCount() {
+        let currentCount = parseInt(this.visitCountElement.textContent);
+        currentCount += 1;
+        this.visitCountElement.textContent = currentCount;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const visitorCounter = new VisitorCounter();
+});
