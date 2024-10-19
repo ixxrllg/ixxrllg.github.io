@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+body {
+	background-color: black; /* Set background color to black */
+	display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+     margin: 0; /* Remove default margin */
+}
+.view-count {
+	color: #FFD700; /* Gold color for text */
+    font-size: 24px; /* Font size */
+    font-family: Arial, sans-serif; /* Font family */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Align items in the center */
+}
+.view-count i {
+	margin-right: 5px; /* Space between icon and text */
+}
