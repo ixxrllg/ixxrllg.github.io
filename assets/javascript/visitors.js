@@ -1,35 +1,9 @@
-class VisitorCounter {
-    constructor() {
-        this.localStorageKey = 'site_visit';
-        this.visitCountElement = document.getElementById('counter');
-        this.checkAndUpdateVisits();
+document.addEventListener("DOMContentLoaded", function() {
+    if (!document.cookie.includes("visited=true")) {
+        let visitCount = localStorage.getItem("visitCount") || 0;
+        visitCount++;
+        localStorage.setItem("visitCount", visitCount);
+        document.cookie = "visited=true; max-age=86400"; // 1 dzień
     }
-
-    hasVisitedBefore() {
-        return localStorage.getItem(this.localStorageKey) !== null;
-    }
-
-    saveVisit() {
-        const currentTimestamp = new Date().getTime();
-        localStorage.setItem(this.localStorageKey, currentTimestamp);
-    }
-
-    checkAndUpdateVisits() {
-        if (!this.hasVisitedBefore()) {
-            this.incrementVisitCount();
-            this.saveVisit();
-        } else {
-            console.log('User has already visited the site.');
-        }
-    }
-
-    incrementVisitCount() {
-        let currentCount = parseInt(this.visitCountElement.textContent);
-        currentCount += 1;
-        this.visitCountElement.textContent = currentCount;
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const visitorCounter = new VisitorCounter();
+    document.getElementById("visit-count").innerText = localStorage.getItem("visitCount") || 1;
 });
