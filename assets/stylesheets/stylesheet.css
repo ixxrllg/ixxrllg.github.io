@@ -16,3 +16,97 @@ html{cursor:url("../others/cursor.png"),default;}html{-webkit-touch-callout:none
     0% { opacity: 0.8; }
     100% { opacity: 0; }
 }
+
+/* Sekcja licznika wizyt */
+#visitor-counter {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    color: #e4e3e3;
+    font-family: consolas, sans-serif;
+    letter-spacing: normal;
+    text-shadow: .75pt .75pt #000;
+    transition: .3s;
+    animation: pulse 2s infinite;
+    overflow: hidden;
+    padding: 10px;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glow {
+    0% { text-shadow: .75pt .75pt #000; }
+    50% { text-shadow: 0 0 10px #ff66d9, 0 0 20px #ff66d9; }
+    100% { text-shadow: .75pt .75pt #000; }
+}
+
+#visitor-counter:hover {
+    letter-spacing: 2px;
+    text-shadow: .125pc .020833333in 3px #ff66d9;
+    animation: shake 0.5s ease-in-out infinite;
+    animation-play-state: running;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Tekst w liczniku */
+#visitor-counter p {
+    font-size: 0.9em;
+    margin: 0;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: fit-content;
+    padding-right: 2px;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#visitor-counter p::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #ff66d9;
+    animation: blink-caret .75s step-end infinite;
+    animation-play-state: running;
+}
+
+@keyframes blink-caret {
+    from, to { background-color: transparent }
+    50% { background-color: #ff66d9 }
+}
+
+/* Liczba wizyt */
+#visit-count {
+    font-size: 0.9em;
+    font-weight: bold;
+    display: inline;
+    animation: colorChange 4s infinite;
+    animation-play-state: running;
+}
+
+@keyframes colorChange {
+    0% { color: #e4e3e3; }
+    33% { color: #ff66d9; }
+    66% { color: #66ff99; }
+    100% { color: #e4e3e3; }
+}
