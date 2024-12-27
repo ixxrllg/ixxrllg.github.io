@@ -174,6 +174,17 @@ document.head.appendChild(style);
 const audioElement = document.getElementById('audio');
 const videoElement = document.getElementById('background');
 
+// Reset time to beginning when page loads
+window.addEventListener('load', () => {
+    if (audioElement) {
+        audioElement.currentTime = 0;
+    }
+    if (videoElement) {
+        videoElement.currentTime = 0;
+    }
+    updateNowPlaying();
+});
+
 audioElement.addEventListener('play', updateNowPlaying);
 videoElement.addEventListener('play', updateNowPlaying);
 audioElement.addEventListener('pause', updateNowPlaying);
@@ -183,8 +194,6 @@ setInterval(() => {
     if (audioElement.paused && videoElement.paused) return;
     updateNowPlaying();
 }, 100);
-
-window.addEventListener('load', updateNowPlaying);
 
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
