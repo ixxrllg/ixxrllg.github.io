@@ -80,7 +80,7 @@ style.textContent = `
         display: none;
         width: 90%;
         max-width: 400px;
-        min-width: 280px;
+        min-width: 200px;
         margin: 0 10px;
     }
 
@@ -167,24 +167,31 @@ style.textContent = `
 
     @media (max-width: 480px) {
         #now-playing {
-            padding: 8px 15px;
+            padding: 6px 12px;
             bottom: 5px;
+            min-width: 150px;
+            max-width: 300px;
         }
 
         .now-playing-content {
-            gap: 10px;
+            gap: 8px;
         }
 
         .track-name {
-            font-size: 0.8em;
-        }
-
-        .time-info {
             font-size: 0.7em;
         }
 
+        .time-info {
+            font-size: 0.6em;
+        }
+
         .now-playing-content i {
-            font-size: 1em;
+            font-size: 0.9em;
+        }
+
+        .progress-container {
+            margin: 6px 0;
+            height: 3px;
         }
     }
 `;
