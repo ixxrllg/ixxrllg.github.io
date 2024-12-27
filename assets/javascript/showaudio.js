@@ -171,26 +171,38 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-const audioElement = document.getElementById('audio');
-const videoElement = document.getElementById('background');
+// Inicjalizacja elementów audio i video
+let audioElement;
+let videoElement;
 
-// Reset time to beginning when page loads
-window.addEventListener('load', () => {
+// Funkcja inicjalizująca elementy i dodająca nasłuchiwacze
+function initializeMediaElements() {
+    audioElement = document.getElementById('audio');
+    videoElement = document.getElementById('background');
+    
     if (audioElement) {
         audioElement.currentTime = 0;
+        audioElement.addEventListener('play', updateNowPlaying);
+        audioElement.addEventListener('pause', updateNowPlaying);
     }
+    
     if (videoElement) {
         videoElement.currentTime = 0;
+        videoElement.addEventListener('play', updateNowPlaying);
+        videoElement.addEventListener('pause', updateNowPlaying);
     }
+    
     updateNowPlaying();
-});
+}
 
-audioElement.addEventListener('play', updateNowPlaying);
-videoElement.addEventListener('play', updateNowPlaying);
-audioElement.addEventListener('pause', updateNowPlaying);
-videoElement.addEventListener('pause', updateNowPlaying);
+// Nasłuchiwanie na załadowanie DOMContent
+document.addEventListener('DOMContentLoaded', initializeMediaElements);
+
+// Nasłuchiwanie na pełne załadowanie strony
+window.addEventListener('load', initializeMediaElements);
 
 setInterval(() => {
+    if (!audioElement || !videoElement) return;
     if (audioElement.paused && videoElement.paused) return;
     updateNowPlaying();
 }, 100);
