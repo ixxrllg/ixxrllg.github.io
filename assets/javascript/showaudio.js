@@ -169,8 +169,11 @@ style.textContent = `
         #now-playing {
             padding: 6px 12px;
             bottom: 5px;
-            min-width: 150px;
-            max-width: 300px;
+            width: calc(100% - 20px);
+            min-width: auto;
+            max-width: none;
+            margin: 0 auto;
+            border-width: 2px;
         }
 
         .now-playing-content {
@@ -178,19 +181,20 @@ style.textContent = `
         }
 
         .track-name {
-            font-size: 0.7em;
+            font-size: 0.8em;
         }
 
         .time-info {
-            font-size: 0.6em;
+            font-size: 0.7em;
+            margin-top: 2px;
         }
 
         .now-playing-content i {
-            font-size: 0.9em;
+            font-size: 1em;
         }
 
         .progress-container {
-            margin: 6px 0;
+            margin: 4px 0;
             height: 3px;
         }
     }
@@ -205,8 +209,10 @@ audioElement.addEventListener('play', updateNowPlaying);
 videoElement.addEventListener('play', updateNowPlaying);
 
 // Aktualizuj pasek postępu co 100ms podczas odtwarzania
-audioElement.addEventListener('timeupdate', updateNowPlaying);
-videoElement.addEventListener('timeupdate', updateNowPlaying);
+setInterval(() => {
+    if (audioElement.paused && videoElement.paused) return;
+    updateNowPlaying();
+}, 100);
 
 // Inicjalizuj przy załadowaniu strony
 window.addEventListener('load', updateNowPlaying);
